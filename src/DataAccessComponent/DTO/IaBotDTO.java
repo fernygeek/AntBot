@@ -1,17 +1,17 @@
 package DataAccessComponent.DTO;
 
-public class IABotDTO {
+public class IaBotDTO {
     private int IdIABot;
     private String Nombre;
     private String Estado;
     private String FechaCrea;
     private String FechaModifica;
-    public IABotDTO(String nombre) {
+    public IaBotDTO(String nombre) {
         this.Nombre = nombre;
     }
-    public IABotDTO() {
+    public IaBotDTO() {
     }
-    public IABotDTO(int idIABot, String nombre, String estado, String fechaCrea,
+    public IaBotDTO(int idIABot, String nombre, String estado, String fechaCrea,
             String fechaModifica) {
         this.IdIABot = idIABot;
         this.Nombre = nombre;

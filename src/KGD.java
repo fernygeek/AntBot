@@ -2,9 +2,11 @@ import AntBot.AntBot;
 import EjercitoRuso.Hormiga;
 import EjercitoRuso.Mecatronico;
 import IABot.IABot;
+import UserInterface.Form.SplashScreenForm;
 
 public class KGD {
     public void iniciar(){
+        SplashScreenForm.show();
         IABot iabot =  IABot.getInstance("IA-RUSA");
         AntBot  antbot1 = new AntBot(iabot, "1");
         AntBot  antbot2 = new AntBot(iabot, "2");

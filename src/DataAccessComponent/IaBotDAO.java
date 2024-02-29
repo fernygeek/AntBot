@@ -12,7 +12,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.IABotDTO;
 
-public class IABotDAO extends SQLiteDataHelper implements IDAO<IABotDTO> {
+public class IaBotDAO extends SQLiteDataHelper implements IDAO<IABotDTO> {
 
     @Override
     public boolean create(IABotDTO entity) throws Exception {

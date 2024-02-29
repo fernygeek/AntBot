@@ -1,4 +1,4 @@
--- database: ../database/Pacclogico.sqlite
+-- database: ../database/AntBot.sqlite
 /*
 |--------------------------------------|
 | (©)2k24 EPN-FIS, All right reserved. |       
@@ -6,12 +6,14 @@
 |erick.caicedo@epn.edu.ec ErickCaiced2 |
 |______________________________________|
 Autor: ErickCaiced2
-Fecha: 24/02/1014
-Script: Ingreso de datos Personal
+Fecha: 28/02/1014
+Script: Ingreso de datos TipoHormiga
 */
-INSERT INTO Personal 
-    (IdPersonal_Padre, Nombre, Observacion)
+INSERT INTO TipoHormiga 
+    (IdTipoHormiga_Padre, Nombre, Observacion)
 VALUES 
-    (NULL, "ADMINISTRADOR APP", "ADMINISTRADOR APP")
-    ,(1, "TRABAJADOR", "TRABAJADOR") 
-    ,(2, "USUARIO VIP", "USUARIO VIP");
+    (NULL, "Reina", "Reina")
+    ,(1, "Zangano", "Zangano") 
+    ,(2, "Soldado", "Soldado")
+    ,(3, "Rastreadora","Rastreadora")
+    ,(4, "Larva","Larva");

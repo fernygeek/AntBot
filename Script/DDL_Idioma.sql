@@ -12,7 +12,7 @@ Script: Creación de la tabla Idioma
 DROP TABLE If EXISTS Idioma;
 --Catalogo
 CREATE TABLE Idioma(
-        IdIdioma                        INTEGER PRIMARY KEY AUTOINCREMENT
+         IdIdioma                        INTEGER PRIMARY KEY AUTOINCREMENT
         ,Nombre                         TEXT  NOT NULL UNIQUE
         ,Estado                         VARCHAR(1) NOT NULL DEFAULT 'A'
         ,Observacion                    TEXT

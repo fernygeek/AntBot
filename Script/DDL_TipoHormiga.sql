@@ -12,7 +12,7 @@ Script: Creación de la tabla TipoHormiga
 DROP TABLE If EXISTS TipoHormiga;
 --Catalogo
 CREATE TABLE TipoHormiga(
-        IdTipoHormiga                   INTEGER PRIMARY KEY AUTOINCREMENT
+         IdTipoHormiga                   INTEGER PRIMARY KEY AUTOINCREMENT
         ,IdTipoHormiga_Padre            INTEGER  REFERENCES TipoHormiga (IdTipoHormiga)
         ,Nombre                         TEXT  NOT NULL UNIQUE
         ,Estado                         VARCHAR(1) NOT NULL DEFAULT 'A'

@@ -1,4 +1,4 @@
--- database: ../database/Pacclogico.sqlite
+-- database: ../database/AntBot.sqlite
 /*
 |--------------------------------------|
 | (©)2k24 EPN-FIS, All right reserved. |       
@@ -6,14 +6,10 @@
 |erick.caicedo@epn.edu.ec ErickCaiced2 |
 |______________________________________|
 Autor: ErickCaiced2
-Fecha: 24/02/1014
-Script: Ingreso de datos Clasificacion
+Fecha: 28/02/1014
+Script: Ingreso de datos IaBot
 */
-INSERT INTO Clasificacion 
+INSERT INTO IaBot 
     (Nombre)
 VALUES 
-    ("MAMIFERO")
-    ,("REPTIL")
-    ,("AVE")
-    ,("ANFIBIO")
-    ,("PEZ");
+    ("Matrioshka");

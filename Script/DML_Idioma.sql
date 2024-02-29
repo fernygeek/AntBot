@@ -1,4 +1,4 @@
--- database: ../database/Pacclogico.sqlite
+-- database: ../database/AntBot.sqlite
 /*
 |--------------------------------------|
 | (©)2k24 EPN-FIS, All right reserved. |       
@@ -6,12 +6,12 @@
 |erick.caicedo@epn.edu.ec ErickCaiced2 |
 |______________________________________|
 Autor: ErickCaiced2
-Fecha: 24/02/1014
-Script: Ingreso de datos Habitat
+Fecha: 28/02/1014
+Script: Ingreso de datos Idioma
 */
-INSERT INTO Habitat 
+INSERT INTO Idioma 
     (Nombre)
 VALUES 
-    ("SELVA")
-    ,("ARBOLES")
-    ,("SEMIACUATICO");
+    ("RUSO")
+    ,("INGLES")
+    ,("ESPAÑOL");

@@ -12,8 +12,9 @@ Script: Creación de la tabla ExpertoIdiomas
 DROP TABLE If EXISTS ExpertoIdiomas;
 --Catalogo
 CREATE TABLE ExpertoIdiomas(
-        IdExpertoIdiomas                INTEGER PRIMARY KEY AUTOINCREMENT
+         IdExpertoIdiomas                INTEGER PRIMARY KEY AUTOINCREMENT
         ,Nombre                         TEXT  NOT NULL UNIQUE
+        ,IdIdioma                       INTEGER  REFERENCES Idioma (IdIdioma)
         ,Estado                         VARCHAR(1) NOT NULL DEFAULT 'A'
         ,Observacion                    TEXT
         ,FechaCrea                      DATETIME NOT NULL DEFAULT (DATETIME('NOW', 'LOCALTIME'))

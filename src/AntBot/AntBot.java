@@ -1,7 +1,6 @@
 package AntBot;
 import EjercitoRuso.ExpertoIngles;
 import EjercitoRuso.ExpertoRuso;
-import EjercitoRuso.Hormiga;
 import IABot.IABot;
 
 public class AntBot extends IABot{

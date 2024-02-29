@@ -10,13 +10,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import DataAccessComponent.DTO.IABotDTO;
+import DataAccessComponent.DTO.MecatronicoDTO;
 
-public class IABotDAO extends SQLiteDataHelper implements IDAO<IABotDTO> {
+public class MecatronicoDAO extends SQLiteDataHelper implements IDAO<MecatronicoDTO> {
 
     @Override
-    public boolean create(IABotDTO entity) throws Exception {
-        String query = " INSERT INTO IABot (Nombre) VALUES (?)";
+    public boolean create(MecatronicoDTO entity) throws Exception {
+        String query = " INSERT INTO Mecatronico (Nombre) VALUES (?)";
         try {
             Connection        conn  = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
@@ -25,19 +25,19 @@ public class IABotDAO extends SQLiteDataHelper implements IDAO<IABotDTO> {
             return true;
         }
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdIABot",e);
+            throw new Exception(getClass()+"getMaxIdMecatronico",e);
         }
     }
 
     @Override
-    public List<IABotDTO> readAll() throws Exception {
-        List<IABotDTO> lst = new ArrayList<>() ;//VACIA
-        String query = "SELECT  IdIABot"
+    public List<MecatronicoDTO> readAll() throws Exception {
+        List<MecatronicoDTO> lst = new ArrayList<>() ;//VACIA
+        String query = "SELECT  IdMecatronico"
                         +", Nombre        "
                         +", Estado        "
                         +", FechaCrea     "
                         +", FechaModifica " //DTO
-                        +" FROM     IABot ";
+                        +" FROM     Mecatronico ";
                   //LEEMOS LA TABLA
     try{
         Connection conn = openConnection();
@@ -46,35 +46,35 @@ public class IABotDAO extends SQLiteDataHelper implements IDAO<IABotDTO> {
          //return stmt.executeQuery(query);  // RESULTADO DE LO QUE VIENE DE LA CLASE, ENTONCES USAREMOS:
 
         while (rs.next()) {
-            IABotDTO oIABotDTO = new IABotDTO (rs.getInt(1),
+            MecatronicoDTO oMecatronicoDTO = new MecatronicoDTO (rs.getInt(1),
                                                 rs.getString(2),
                                                 rs.getString(3),
                                                 rs.getString(4),
                                                 rs.getString(5));
-            lst.add(oIABotDTO);//cada vez que traemos una fila agregamos a una lista.
+            lst.add(oMecatronicoDTO);//cada vez que traemos una fila agregamos a una lista.
         }
     }catch(SQLException e){
-        throw new Exception(getClass()+"getMaxIdIABot",e);
+        throw new Exception(getClass()+"getMaxIdMecatronico",e);
     }
     return lst;
     }
 
     @Override
-    public IABotDTO readBy(Integer id) throws Exception {
-        IABotDTO oIABotDTO = new IABotDTO();
-        String query =" SELECT IdIABot  "
+    public MecatronicoDTO readBy(Integer id) throws Exception {
+        MecatronicoDTO oMecatronicoDTO = new MecatronicoDTO();
+        String query =" SELECT IdMecatronico  "
                         +",Nombre            "
                         +",Estado            "
                         +",FechaCrea         "
                         +",FechaModifica     "
-                        +"FROM    IABot       "
-                        +"WHERE   Estado ='A' AND IdIABot =   "+ id.toString() ;
+                        +"FROM    Mecatronico       "
+                        +"WHERE   Estado ='A' AND IdMecatronico =   "+ id.toString() ;
         try {
             Connection conn = openConnection();         // conectar a DB
             Statement  stmt = conn.createStatement();   // CRUD : select * ...
             ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
             while (rs.next()) {
-                oIABotDTO = new IABotDTO(rs.getInt(1)
+                oMecatronicoDTO = new MecatronicoDTO(rs.getInt(1)
                                     ,rs.getString(2)
                                     ,rs.getString(3)
                                     ,rs.getString(4)
@@ -82,33 +82,33 @@ public class IABotDAO extends SQLiteDataHelper implements IDAO<IABotDTO> {
             }
         }
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdIABot",e);
+            throw new Exception(getClass()+"getMaxIdMecatronico",e);
         }
-        return oIABotDTO;
+        return oMecatronicoDTO;
     }
 
     @Override
-    public boolean update(IABotDTO entity) throws Exception {
+    public boolean update(MecatronicoDTO entity) throws Exception {
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        String query = " UPDATE IABot SET Nombre = ?, FechaModifica = ? WHERE IdIABot = ?";
+        String query = " UPDATE Mecatronico SET Nombre = ?, FechaModifica = ? WHERE IdMecatronico = ?";
         try {
             Connection          conn = openConnection();
             PreparedStatement pstmt  = conn.prepareStatement(query);
             pstmt.setString(1, entity.getNombre());
             pstmt.setString(2, dtf.format(now).toString());
-            pstmt.setInt(3, entity.getIdIABot());
+            pstmt.setInt(3, entity.getIdMecatronico());
             pstmt.executeUpdate();
             return true;
         }
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdIABot",e);
+            throw new Exception(getClass()+"getMaxIdMecatronico",e);
         }
     }
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query = " UPDATE IABot SET Estado = ? WHERE IdIABot = ?";
+        String query = " UPDATE Mecatronico SET Estado = ? WHERE IdMecatronico = ?";
         try {
             Connection          conn = openConnection();
             PreparedStatement  pstmt = conn.prepareStatement(query);
@@ -118,7 +118,7 @@ public class IABotDAO extends SQLiteDataHelper implements IDAO<IABotDTO> {
             return true;
         }
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdIABot",e);
+            throw new Exception(getClass()+"getMaxIdMecatronico",e);
         }
     }
 

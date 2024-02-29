@@ -1,34 +1,24 @@
-/*
-|-------------------------------------|
-| © 2024 EPN-FIS, All rights reserved |
-| kevin.calles@epn.edu.ec             |
-|-------------------------------------|
-Autor: Kevin Calles
-Fecha: 25 - 02 - 2024
-Script: PatLabelText
-*/
-
 package UserInterface.CustomerControl;
 
 import javax.swing.*;
+
+import UserInterface.Style;
+
 import java.awt.*;
 
-public class PatLabelText extends JPanel {
+public class PatLabelText extends JPanel{
+    private PatLabel    lblEtiqueta = new PatLabel();
+    private PatTextBox  txtContenido= new PatTextBox();
 
-    private PatLabel lblEtiqueta = new PatLabel();
-    private JLabel txtContenido = new JLabel();
-
-    // El constructor `PatLabelText` en el código Java proporcionado está inicializando una nueva
-    // instancia de la clase `PatLabelText` con un parámetro `etiqueta` especificado. Aquí hay un
-    // desglose de lo que está haciendo el constructor:
     public PatLabelText(String etiqueta) {
         setLayout(new BorderLayout());
-        lblEtiqueta.setCustomizeComponent(
-                etiqueta,
-                PatStyle.FONT,
-                PatStyle.COLOR_FONT,
-                PatStyle.ALIGNMENT_CENTER);
 
+        lblEtiqueta.setCustomizeComponent(  etiqueta, 
+                                            Style.FONT_SMALL, 
+                                            Style.COLOR_FONT_LIGHT, 
+                                            Style.ALIGNMENT_LEFT); 
+        //txtContenido.setBorder(txtContenido.createBorderLine());
+        txtContenido.setBorderLine();
         add(lblEtiqueta, BorderLayout.NORTH);
         add(txtContenido, BorderLayout.CENTER);
     }

@@ -1,29 +1,29 @@
 package DataAccessComponent.DTO;
 
-public class IABotDTO {
-    private int IdIABot;
+public class HormigaClasificacionDTO {
+    private int IdHormigaClasificacion;
     private String Nombre;
     private String Estado;
     private String FechaCrea;
     private String FechaModifica;
-    public IABotDTO(String nombre) {
+    public HormigaClasificacionDTO(String nombre) {
         this.Nombre = nombre;
     }
-    public IABotDTO() {
+    public HormigaClasificacionDTO() {
     }
-    public IABotDTO(int idIABot, String nombre, String estado, String fechaCrea,
+    public HormigaClasificacionDTO(int idHormigaClasificacion, String nombre, String estado, String fechaCrea,
             String fechaModifica) {
-        this.IdIABot = idIABot;
+        this.IdHormigaClasificacion = idHormigaClasificacion;
         this.Nombre = nombre;
         this.Estado = estado;
         this.FechaCrea = fechaCrea;
         this.FechaModifica = fechaModifica;
     }
-    public int getIdIABot() {
-        return IdIABot;
+    public int getIdHormigaClasificacion() {
+        return IdHormigaClasificacion;
     }
-    public void setIdIABot(int idIABot) {
-        IdIABot = idIABot;
+    public void setIdHormigaClasificacion(int idHormigaClasificacion) {
+        IdHormigaClasificacion = idHormigaClasificacion;
     }
     public String getNombre() {
         return Nombre;
@@ -52,7 +52,7 @@ public class IABotDTO {
     @Override
     public String toString() {
         return "\n"+getClass().getName()
-                    +"\nIdIABot   : "+ getIdIABot()
+                    +"\nIdHormigaClasificacion   : "+ getIdHormigaClasificacion()
                     +"\nNombre          : "+ getNombre()
                     +"\nEstado          : "+ getEstado()
                     +"\nFechaCrea       : "+ getFechaCrea()

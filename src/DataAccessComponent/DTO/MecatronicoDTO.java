@@ -1,29 +1,29 @@
 package DataAccessComponent.DTO;
 
-public class IABotDTO {
-    private int IdIABot;
+public class MecatronicoDTO {
+    private int IdMecatronico;
     private String Nombre;
     private String Estado;
     private String FechaCrea;
     private String FechaModifica;
-    public IABotDTO(String nombre) {
+    public MecatronicoDTO(String nombre) {
         this.Nombre = nombre;
     }
-    public IABotDTO() {
+    public MecatronicoDTO() {
     }
-    public IABotDTO(int idIABot, String nombre, String estado, String fechaCrea,
+    public MecatronicoDTO(int idMecatronico, String nombre, String estado, String fechaCrea,
             String fechaModifica) {
-        this.IdIABot = idIABot;
+        this.IdMecatronico = idMecatronico;
         this.Nombre = nombre;
         this.Estado = estado;
         this.FechaCrea = fechaCrea;
         this.FechaModifica = fechaModifica;
     }
-    public int getIdIABot() {
-        return IdIABot;
+    public int getIdMecatronico() {
+        return IdMecatronico;
     }
-    public void setIdIABot(int idIABot) {
-        IdIABot = idIABot;
+    public void setIdMecatronico(int idMecatronico) {
+        IdMecatronico = idMecatronico;
     }
     public String getNombre() {
         return Nombre;
@@ -52,7 +52,7 @@ public class IABotDTO {
     @Override
     public String toString() {
         return "\n"+getClass().getName()
-                    +"\nIdIABot   : "+ getIdIABot()
+                    +"\nIdMecatronico   : "+ getIdMecatronico()
                     +"\nNombre          : "+ getNombre()
                     +"\nEstado          : "+ getEstado()
                     +"\nFechaCrea       : "+ getFechaCrea()

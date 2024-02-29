@@ -10,17 +10,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import DataAccessComponent.DTO.AntBotDTO;
+import DataAccessComponent.DTO.HormigaDTO;
 
-public class AntBotDAO extends SQLiteDataHelper implements IDAO<AntBotDTO>{
+public class HormigaDAO extends SQLiteDataHelper implements IDAO<HormigaDTO>{
 
     @Override
-    public boolean create(AntBotDTO entity) throws Exception {
-        String query="INSERT INTO AntBot(Nombre) VALUES(?)";
+    public boolean create(HormigaDTO entity) throws Exception {
+        String query="INSERT INTO Hormiga(Nombre) VALUES(?)";
         try {
             Connection conn=openConnection();
             PreparedStatement  pstmt = conn.prepareStatement(query);
-            pstmt.setString(1,entity.getSerie());
+            pstmt.setString(1,entity.getCodigo());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -29,27 +29,27 @@ public class AntBotDAO extends SQLiteDataHelper implements IDAO<AntBotDTO>{
     }
 
     @Override
-    public List<AntBotDTO> readAll() throws Exception {
-        List<AntBotDTO> lst = new ArrayList<>();
-        String query="SELECT IdAntBot "
-                        +",IdIABot         "
-                        +",Serie         "
+    public List<HormigaDTO> readAll() throws Exception {
+        List<HormigaDTO> lst = new ArrayList<>();
+        String query="SELECT IdHormiga "
+                        +",IdHormigaClasificacion         "
+                        +",Codigo         "
                         +",Estado         "
                         +",FechaCrea      "
                         +",FechaModifica  "
-                        +"FROM AntBot ";
+                        +"FROM Hormiga ";
         try {
             Connection conn=openConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
-                AntBotDTO oAntBotDTO = new AntBotDTO(rs.getInt(1)
+                HormigaDTO oHormigaDTO = new HormigaDTO(rs.getInt(1)
                                         ,rs.getInt(2)
                                         ,rs.getString(3)
                                         ,rs.getString(4)
                                         ,rs.getString(5)
                                         ,rs.getString(6));
-            lst.add(oAntBotDTO);
+            lst.add(oHormigaDTO);
 
             }
         } catch (Exception e) {
@@ -59,22 +59,22 @@ public class AntBotDAO extends SQLiteDataHelper implements IDAO<AntBotDTO>{
     }
 
     @Override
-    public AntBotDTO readBy(Integer id) throws Exception {
-        AntBotDTO oAntBotDTO= new AntBotDTO();
-        String  query="SELECT IdAntBot"
-                        +",IdIABot        "
+    public HormigaDTO readBy(Integer id) throws Exception {
+        HormigaDTO oHormigaDTO= new HormigaDTO();
+        String  query="SELECT IdHormiga"
+                        +",IdHormigaClasificacion        "
                         +",Serie        "
                         +",Estado        "
                         +",FechaCrea     "
                         +",FechaModifica "
-                        +"FROM AntBot "
-                        +"WHERE Estado ='A' AND IdAntBot= "+id.toString();
+                        +"FROM Hormiga "
+                        +"WHERE Estado ='A' AND IdHormiga= "+id.toString();
         try {
             Connection conn=openConnection();
             Statement   stm=conn.createStatement();
             ResultSet   rs=stm.executeQuery(query);
             while (rs.next()) {
-                oAntBotDTO = new AntBotDTO(rs.getInt(1)
+                oHormigaDTO = new HormigaDTO(rs.getInt(1)
                         ,rs.getInt(2)
                         ,rs.getString(3)
                         ,rs.getString(4)
@@ -84,20 +84,20 @@ public class AntBotDAO extends SQLiteDataHelper implements IDAO<AntBotDTO>{
             } catch (Exception e) {
                 throw e;
             }
-            return oAntBotDTO;
+            return oHormigaDTO;
     }
 
     @Override
-    public boolean update(AntBotDTO entity) throws Exception {
+    public boolean update(HormigaDTO entity) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        String query= "UPDATE AntBot SET Nombre = ?, FechaModifica = ? WHERE IdAntBot = ?";
+        String query= "UPDATE Hormiga SET Nombre = ?, FechaModifica = ? WHERE IdHormiga = ?";
         try {
             Connection conn=openConnection();
             PreparedStatement ps=conn.prepareStatement(query);
-            ps.setString(1,entity.getSerie());
+            ps.setString(1,entity.getCodigo());
             ps.setString(2,dtf.format(now));
-            ps.setInt(3,entity.getIdAntBot());
+            ps.setInt(3,entity.getIdHormiga());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -107,7 +107,7 @@ public class AntBotDAO extends SQLiteDataHelper implements IDAO<AntBotDTO>{
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query="UPDATE AntBot SET Estado=? WHERE IdAntBot=?";
+        String query="UPDATE Hormiga SET Estado=? WHERE IdHormiga=?";
         try {
             Connection conn=openConnection();
             PreparedStatement ps=conn.prepareStatement(query);
@@ -122,7 +122,7 @@ public class AntBotDAO extends SQLiteDataHelper implements IDAO<AntBotDTO>{
 
     @Override
     public Integer getMaxRow() throws Exception {
-        String query= "SELECT COUNT(IdAntBot) TotalReg FROM AntBot"
+        String query= "SELECT COUNT(IdHormiga) TotalReg FROM Hormiga"
         + "WHERE Estado='A'";
         try {
             Connection conn= openConnection();
